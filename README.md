@@ -17,6 +17,11 @@ dos produtos, adicionem produtos ao carrinho e finalizem a compra.
   - [ ] Ordenação por menor preço ou maior preço.
   - [ ] Busca por nome.
 
+ - [ ] **Página de detalhes da bicicleta**
+   - [ ] Imagem da bicicleta.
+   - [ ] Nome, preço e descrição completa.
+   - [ ] Opção de adicionar ao carrinho.
+
 - [ ] **Carrinho de compras**
   - [ ] Adicionar e remover produtos.
   - [ ] Visualizar e atualizar quantidade de itens no carrinho.
