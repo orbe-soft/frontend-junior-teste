@@ -10,14 +10,22 @@ Desenvolva uma aplicação de e-commerce para a venda de bicicletas. A aplicaç�
 dos produtos, adicionem produtos ao carrinho e finalizem a compra.
 
 ## 📌 Requisitos
-- [ ] Catálogo de bicicletas com imagem, nome, preço e descrição.
-- [ ] Paginação.
-- [ ] Filtro por marca.
-- [ ] Ordenação por menor preço ou maior preço.
-- [ ] Busca por nome.
-- [ ] Adicionar e remover produtos do carrinho.
-- [ ] Visualizar e atualizar quantidade de itens no carrinho.
-- [ ] Checkout para revisar itens, fornecer informações de envio e concluir a compra.
+- [ ] **Catálogo de bicicletas**
+  - [ ] Listagem com imagem, nome, preço e descrição.
+  - [ ] Paginação.
+  - [ ] Filtro por marca.
+  - [ ] Ordenação por menor preço ou maior preço.
+  - [ ] Busca por nome.
+
+- [ ] **Carrinho de compras**
+  - [ ] Adicionar e remover produtos.
+  - [ ] Visualizar e atualizar quantidade de itens no carrinho.
+
+- [ ] **Checkout**
+  - [ ] Revisar itens.
+  - [ ] Fornecer informações de envio.
+  - [ ] Concluir a compra.
+
 
 ## 🛠️ Ferramentas e Tecnologias (Obrigatórias)
 - Next.js
