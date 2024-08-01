@@ -20,7 +20,6 @@ dos produtos, adicionem produtos ao carrinho e finalizem a compra.
 - [ ] Checkout para revisar itens, fornecer informações de envio e concluir a compra.
 
 ## 🛠️ Ferramentas e Tecnologias (Obrigatórias)
-- React
 - Next.js
 - TypeScript
 - TailwindCSS
