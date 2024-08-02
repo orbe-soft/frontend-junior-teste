@@ -54,11 +54,6 @@ dos produtos, adicionem produtos ao carrinho e finalizem a compra.
 - Documentação.
 - Criatividade e inovação.
 
-## 📅 Entrega
-- Faça um fork deste repositório.
-- Crie uma branch com seu nome-sobrenome
-- Abra um pull request (PR) para submeter sua solução.
-
 ## ✨ Diferencial
 - Implementação de testes unitários (Jest, React Testing Library).
 - Uso de bibliotecas de gerenciamento de estado (Zustand).
@@ -68,3 +63,8 @@ dos produtos, adicionem produtos ao carrinho e finalizem a compra.
 - Implementação de boas práticas de SEO.
 - Configuração de CI/CD (Github Actions).
 - Implementação de testes e2e (Cypress, Playwright).
+
+## 📅 Entrega
+- Faça um fork deste repositório.
+- Crie uma branch com seu nome-sobrenome
+- Abra um pull request (PR) para submeter sua solução.
