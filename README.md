@@ -26,12 +26,6 @@ dos produtos, adicionem produtos ao carrinho e finalizem a compra.
   - [ ] Adicionar e remover produtos.
   - [ ] Visualizar e atualizar quantidade de itens no carrinho.
 
-- [ ] **Checkout**
-  - [ ] Revisar itens.
-  - [ ] Fornecer informações de envio.
-  - [ ] Concluir a compra.
-
-
 ## 🛠️ Ferramentas e Tecnologias (Obrigatórias)
 - Next.js
 - TypeScript
