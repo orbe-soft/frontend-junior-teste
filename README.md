@@ -1,13 +1,10 @@
-![logo](https://github.com/user-attachments/assets/126c245e-5923-4ea5-854a-6fd80aa28cfa)
-
 # Teste Técnico Frontend Júnior
 
 ## 👋 Introdução
 Bem-vindo(a) ao teste técnico para desenvolvedores(as) frontend da Orbesoft! Este desafio tem como objetivo avaliar suas habilidades como desenvolvedor(a) frontend. 
 
 ## 🎯 Objetivo
-Desenvolva uma aplicação de e-commerce para a venda de bicicletas. A aplicação deve permitir que os usuários naveguem por um catálogo de bicicletas, visualizem detalhes 
-dos produtos, adicionem produtos ao carrinho e finalizem a compra.
+Desenvolva uma aplicação de e-commerce para a venda de bicicletas. A aplicação deve permitir que os usuários naveguem por um catálogo de bicicletas, visualizem detalhes dos produtos, adicionem produtos ao carrinho e finalizem a compra.
 
 ## 📌 Requisitos
 - [ ] **Catálogo de bicicletas**
@@ -35,6 +32,10 @@ dos produtos, adicionem produtos ao carrinho e finalizem a compra.
 - Zod
 - React Hook Form
 
+## 🔗 Links
+- [Figma do Projeto](https://www.figma.com/design/TZXjpooM467GLW7UXpvf47/E-commerce---Bike?node-id=1-131)  
+- [API](https://www.postman.com/orbesoft-team/workspace/teste-frontend-jnior/overview)
+
 ## 📋 Critérios de Avaliação
 - Gerenciamento de estado.
 - Componentização.
@@ -60,5 +61,5 @@ dos produtos, adicionem produtos ao carrinho e finalizem a compra.
 
 ## 📅 Entrega
 - Faça um fork deste repositório.
-- Crie uma branch com seu nome-sobrenome
+- Crie uma branch com seu nome-sobrenome.
 - Abra um pull request (PR) para submeter sua solução.
