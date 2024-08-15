@@ -1,6 +1,3 @@
 {
-  "singleQuote": true,
-  "useTabs": false,
-  "trailingComma": "none",
-  "arrowParens": "avoid"
+  "plugins": ["prettier-plugin-tailwindcss"]
 }
