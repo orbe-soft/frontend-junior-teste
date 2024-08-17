@@ -1,0 +1,47 @@
+___________CHAMADAS BÁSICAS______________
+
+## Para chamar todos os dados da API:
+`BASE_URL`
+
+## Para obter uma bicicleta específica:
+`BASE_URL/:id`
+_________________________________________
+
+
+___________QUERY PARAMS____________
+
+- `limit=10`
+  Define o número máximo de produtos por página, valor padrão é 12.
+
+- `page=2`
+  Especifica a página dos resultados a ser retornada, valor padrão é 1.
+
+- `order=DESC`
+  Define a ordem de classificação dos resultados por preço, podendo ser `ASC` (ascendente) ou `DESC` (descendente).
+
+- `name=Caloi City Tour`
+  Filtra os produtos com base no nome do produto.
+
+- `brand=Caloi`
+  Filtra os produtos com base na marca do produto.
+
+# Exemplo de uso:
+
+- `BASE_URL?page=1&limit=10&order=DESC`
+  Define a primeira página, com limite de 10 itens por página, em ordem de preço decrescente.
+
+- `BASE_URL?name=BMC Alpenchallenge`
+  Retorna detalhes da bicicleta BMC Alpenchallenge.
+
+- `BASE_URL?brand=Caloi`
+  Retorna todas as bicicletas da marca Caloi.
+_____________________________________
+
+
+A API também fornece essas informações sobre a paginação:
+"pagination": {
+    "currentPage": 1,
+    "lastPage": 1,
+    "total": 3,
+    "limit": 12
+  }

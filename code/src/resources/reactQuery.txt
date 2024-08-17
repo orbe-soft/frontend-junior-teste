@@ -1,0 +1,37 @@
+import { z } from 'zod';
+import axios from 'axios';
+
+// Define o schema como mostrado acima
+const productSchema = z.object({
+  id: z.number(),
+  name: z.string(),
+  price: z.number(),
+});
+
+const productsSchema = z.array(productSchema);
+
+async function fetchProducts() {
+  try {
+    // Faça a chamada à API
+    const response = await axios.get('https://api.example.com/products');
+
+    // Valide os dados recebidos com o schema
+    const data = response.data;
+    const validatedData = productsSchema.parse(data);
+
+    // Se a validação passar, você pode usar os dados com segurança
+    console.log('Dados validados:', validatedData);
+
+    return validatedData;
+  } catch (error) {
+    if (error instanceof z.ZodError) {
+      // Trate erros de validação
+      console.error('Erro de validação:', error.errors);
+    } else {
+      // Trate outros erros (como erros de rede)
+      console.error('Erro ao buscar dados:', error);
+    }
+  }
+}
+
+fetchProducts();
