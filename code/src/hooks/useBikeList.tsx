@@ -1,14 +1,17 @@
-import { useState } from"react";
-import { useQuery } from"react-query";
-import { getAllBikes, getByBrand, getByName } from"@/services/bike";
+"use client";
+
+import { useState } from "react";
+import { useQuery } from "react-query";
+import { getAllBikes, getByBrand, getByName } from "@/services/bike";
 import { useBikeStore } from "@/hooks/useBikeStore";
 
 export function useBikeList(initialBikes) {
-  const { searchName } = useBikeStore(); 
+  const { searchName } = useBikeStore();
   const [selectedBrand, setSelectedBrand] = useState(null);
-  const [currentPage, setCurrentPage] = useState(initialBikes.pagination.currentPage);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [priceOrder, setPriceOrder] = useState<"ASC" | "DESC">("ASC");
 
-  const fetchBikes = async (page: number) => {
+  const fetchBikes = async (page: number, order: "ASC" | "DESC") => {
     if (searchName) {
       return getByName(searchName);
     } else if (selectedBrand) {
@@ -17,13 +20,13 @@ export function useBikeList(initialBikes) {
     return getAllBikes({
       page,
       limit: initialBikes.pagination.limit,
-      order: "ASC",
+      order,
     });
   };
 
   const { data, isLoading, error } = useQuery(
-    ["bikes", searchName, selectedBrand, currentPage],
-    () =>fetchBikes(currentPage),
+    ["bikes", searchName, selectedBrand, currentPage, priceOrder],
+    () => fetchBikes(currentPage, priceOrder),
     {
       keepPreviousData: true,
       initialData: initialBikes,
@@ -35,6 +38,10 @@ export function useBikeList(initialBikes) {
     setSelectedBrand(brand);
   };
 
+  const handlePriceOrder = (order: "ASC" | "DESC") => {
+    setPriceOrder(order);
+  };
+
   return {
     bikes: data.content,
     pagination: data.pagination,
@@ -44,5 +51,6 @@ export function useBikeList(initialBikes) {
     error,
     handleBrandClick,
     setCurrentPage,
+    handlePriceOrder,
   };
 }

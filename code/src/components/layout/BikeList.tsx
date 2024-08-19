@@ -5,6 +5,7 @@ import BikeCard from "./BikeCard";
 import { useBikeList } from "@/hooks/useBikeList";
 import BrandFilter from "../fragments/BrandFilter";
 import PaginationControls from "../fragments/PaginationControl";
+import PriceOrder from "../fragments/PriceOrder";
 
 const filters = [
   "Caloi",
@@ -27,6 +28,7 @@ function BikeList({ initialBikes }) {
     selectedBrand,
     handleBrandClick,
     setCurrentPage,
+    handlePriceOrder
   } = useBikeList(initialBikes);
 
   return (
@@ -36,7 +38,7 @@ function BikeList({ initialBikes }) {
         selectedBrand={selectedBrand}
         onFilterClick={handleBrandClick}
       />
-
+  <PriceOrder handlePriceOrder={handlePriceOrder}/>
       <ul className="flex flex-wrap gap-4 justify-center align-center">
         {bikes.map((bike) => (
           <BikeCard key={bike.id} bike={bike} />
