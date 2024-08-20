@@ -13,9 +13,9 @@ export function useBikeList(initialBikes) {
 
   const fetchBikes = async (page: number, order: "ASC" | "DESC") => {
     if (searchName) {
-      return getByName(searchName);
+      return getByName({name: searchName, order});
     } else if (selectedBrand) {
-      return getByBrand({ brand: selectedBrand, page });
+      return getByBrand({ brand: selectedBrand, page, order });
     }
     return getAllBikes({
       page,

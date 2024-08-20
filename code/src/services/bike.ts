@@ -34,7 +34,7 @@ export const getAllBikes = async (
 
 export const getSingleBike = async (id: QueryParams) => {
   try {
-    const response = await axios.get(`${BASE_URL}/id=${id}`);
+    const response = await axios.get(`${BASE_URL}/${id}`);
     return response.data;
   } catch (error) {
     console.error("Erro ao obter bicicleta pelo ID:", error);
@@ -53,9 +53,9 @@ export const getByBrand = async (queryParams: QueryParams) => {
   }
 };
 
-export const getByName = async(name: QueryParams)=>{
+export const getByName = async({name, order}: QueryParams)=>{
   try{
-    const response = await axios.get(`${BASE_URL}?name=${name}`)
+    const response = await axios.get(`${BASE_URL}?name=${name}&order=${order}`)
     return response.data
   } catch(err){
     console.error(err)
