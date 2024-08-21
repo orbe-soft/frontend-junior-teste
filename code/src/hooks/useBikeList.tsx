@@ -19,7 +19,7 @@ export function useBikeList(initialBikes) {
     }
     return getAllBikes({
       page,
-      limit: initialBikes.pagination.limit,
+      limit: 10,
       order,
     });
   };
