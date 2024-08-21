@@ -1,23 +1,25 @@
 import React from "react";
 
 function BrandFilter({ filters, selectedBrand, onFilterClick }) {
+  // Handler para mudar a seleção
+  const handleChange = (event) => {
+    const value = event.target.value;
+    onFilterClick(value === "all" ? null : value);
+  };
+
   return (
-    <div>
+    <select
+      value={selectedBrand || "all"}
+      onChange={handleChange}
+      className="cursor-pointer p-2 border rounded-md"
+    >
+      <option value="all">Todas</option>
       {filters.map((filter) => (
-        <span
-          key={filter}
-          onClick={() => onFilterClick(filter)}
-          className={`mx-1 cursor-pointer ${
-            selectedBrand === filter ? "font-bold" : ""
-          }`}
-        >
+        <option key={filter} value={filter}>
           {filter}
-        </span>
+        </option>
       ))}
-      <span onClick={() => onFilterClick(null)} className="mx-1 cursor-pointer">
-        Todas
-      </span>
-    </div>
+    </select>
   );
 }
 
