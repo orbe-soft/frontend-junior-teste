@@ -13,12 +13,15 @@ import {
 } from "react-icons/fa";
 import { FiShoppingBag } from "react-icons/fi";
 import { Button } from "../ui/button";
+import { AddCart } from "@/services/add-cart";
+import { useCart } from "@/hooks/cart-provider";
 
 interface ItemContentProps {
   slug: string;
 }
 
 export const ItemContent = ({ slug }: ItemContentProps) => {
+  const { updateItemCount } = useCart();
   const { data, error, isLoading } = useQuery<Bike>({
     queryKey: ["item", req.byId(slug)],
     queryFn: () =>
@@ -33,6 +36,12 @@ export const ItemContent = ({ slug }: ItemContentProps) => {
         }),
   });
   const [activeImage, setActiveImage] = useState<string>("");
+
+  const handleAddCart = async (id: string) => {
+    AddCart({ id });
+
+    updateItemCount();
+  };
 
   if (isLoading) {
     return <div>Carregando...</div>;
@@ -123,7 +132,10 @@ export const ItemContent = ({ slug }: ItemContentProps) => {
               </Button>
             </div>
           </div>
-          <Button className="flex w-full items-center gap-4 rounded bg-brand-bs-orange py-4 font-semibold uppercase text-white hover:bg-text-primary sm:w-auto sm:px-14">
+          <Button
+            onClick={() => handleAddCart(data.id)}
+            className="flex w-full items-center gap-4 rounded bg-brand-bs-orange py-4 font-semibold uppercase text-white hover:bg-text-primary sm:w-auto sm:px-14"
+          >
             <FiShoppingBag className="text-2xl" />
             <p>Adicionar ao carrinho</p>
           </Button>

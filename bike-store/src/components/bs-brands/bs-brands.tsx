@@ -53,7 +53,10 @@ export function BsBrands({
   };
 
   return (
-    <div id="brands-filter" className="flex flex-wrap gap-10">
+    <div
+      id="brands-filter"
+      className="flex w-full flex-wrap gap-5 lg:w-auto lg:gap-10"
+    >
       {brands.map((brand) => (
         <label
           key={brand}

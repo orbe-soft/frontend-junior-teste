@@ -75,7 +75,7 @@ export const Main = () => {
     <main className="flex flex-col items-center px-[4%] pt-20 xl:px-[8%] 2xl:px-[12%]">
       {data && (
         <>
-          <div className="mb-8 flex w-full max-w-[1280px] items-end justify-between">
+          <div className="mb-8 flex w-full max-w-[1280px] flex-col items-end justify-between lg:flex-row">
             <BsBrands
               brands={brands}
               setBrands={setBrands}
