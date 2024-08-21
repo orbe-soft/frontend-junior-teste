@@ -23,7 +23,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body className={sora.className}>
-        <main className="bg-background min-h-screen w-full">
+        <main className="min-h-screen w-full bg-background">
           <Header />
           {children}
         </main>
