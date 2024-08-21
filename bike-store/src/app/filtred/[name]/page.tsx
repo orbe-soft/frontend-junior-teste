@@ -3,14 +3,19 @@
 import { QueryClientProvider } from "@tanstack/react-query";
 import { queryClient } from "@/app/page";
 import { UndoButton } from "@/components/undo/undo";
-import { CartComponent } from "@/components/cart/cart";
+import { NameContent } from "@/components/item/name";
 
-export default function Cart() {
+interface NameProps {
+  params: { name: string };
+}
+
+export default function Name({ params }: NameProps) {
   return (
     <QueryClientProvider client={queryClient}>
       <main className="flex flex-col items-center px-[4%] xl:px-[8%] 2xl:px-[12%]">
         <UndoButton />
-        <CartComponent />
+
+        <NameContent name={params.name} />
       </main>
     </QueryClientProvider>
   );
