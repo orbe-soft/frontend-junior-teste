@@ -9,10 +9,15 @@ import {
 } from "@/utils/formatters";
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import { BikeProps } from "@/types/bikeTypes";
 
-const BikeDetails = ({ params }) => {
+interface RouteParamsProps {
+  id: string;
+}
+
+const BikeDetails = ({ params }: { params: RouteParamsProps }) => {
   const { id } = params;
-  const [bike, setBike] = useState(null);
+  const [bike, setBike] = useState<BikeProps | undefined>(undefined);
 
   useEffect(() => {
     const fetchBike = async () => {

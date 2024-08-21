@@ -7,6 +7,7 @@ if (!BASE_URL) {
 }
 
 interface QueryParams {
+  id?: string;
   page?: number;
   order?: "ASC" | "DESC";
   limit?: number;
@@ -32,7 +33,7 @@ export const getAllBikes = async (
   }
 };
 
-export const getSingleBike = async (id: QueryParams) => {
+export const getSingleBike = async (id: string) => {
   try {
     const response = await axios.get(`${BASE_URL}/${id}`);
     return response.data;
@@ -53,11 +54,13 @@ export const getByBrand = async (queryParams: QueryParams) => {
   }
 };
 
-export const getByName = async({name, order}: QueryParams)=>{
-  try{
-    const response = await axios.get(`${BASE_URL}?name=${name}&order=${order}`)
-    return response.data
-  } catch(err){
-    console.error(err)
+export const getByName = async ({ name, order }: QueryParams) => {
+  try {
+    const queryString = buildQueryString({ name, order });
+    const response = await axios.get(`${BASE_URL}${queryString}`);
+    return response.data;
+  } catch (err) {
+    console.error("Erro ao obter bicicletas por nome:", err);
+    throw err;
   }
-}
+};

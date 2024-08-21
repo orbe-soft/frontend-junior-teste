@@ -1,8 +1,14 @@
 import React from "react";
 
-function BrandFilter({ filters, selectedBrand, onFilterClick }) {
-  // Handler para mudar a seleção
-  const handleChange = (event) => {
+interface Props {
+  filters: string[];
+  selectedBrand: string | null;
+  onFilterClick: (value: string | null) => void;
+}
+
+function BrandFilter({ filters, selectedBrand, onFilterClick }: Props) {
+
+  const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const value = event.target.value;
     onFilterClick(value === "all" ? null : value);
   };

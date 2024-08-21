@@ -1,6 +1,12 @@
 import React from "react";
 
-function PaginationControls({ currentPage, lastPage, onPageChange }) {
+interface Props{
+  currentPage: number
+  lastPage: number
+  onPageChange: (currentPage: number)=> void
+}
+
+function PaginationControls({ currentPage, lastPage, onPageChange }: Props) {
   const pages = Array.from({ length: lastPage }, (_, i) => i + 1);
 
   return (

@@ -1,6 +1,10 @@
 import React from "react";
 
-const PriceOrder = ({ handlePriceOrder }) => {
+interface Props {
+  handlePriceOrder: (order: "ASC" | "DESC") => void;
+}
+
+const PriceOrder = ({ handlePriceOrder }: Props) => {
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     handlePriceOrder(event.target.value as "ASC" | "DESC");
   };

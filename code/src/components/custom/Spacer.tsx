@@ -1,9 +1,8 @@
-import React from 'react'
+import { SpacerProps } from "@/types/Components/customTypes";
+import React from "react";
 
-const Spacer = ({w, h}) => {
-  return (
-    <div className={`w-${w} h-${h}`}></div>
-  )
-}
+const Spacer = ({ w, h }: SpacerProps) => {
+  return <div className={`w-${w} h-${h}`}></div>;
+};
 
-export default Spacer
+export default Spacer;

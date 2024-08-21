@@ -11,8 +11,8 @@ export const getInstallments = (value: number) => {
   return formatToBRL(valuePerInstallment);
 };
 
-// Função que retorna o valor com um desconto de 5% do original, usada no pagamento à vista com pix
+// Função que retorna o valor com um desconto de 10% do original, usada no pagamento à vista com pix
 export const percentageDiscount = (value: number) => {
-  const withDiscount = value - value * 0.05;
+  const withDiscount = value - value * 0.10;
   return formatToBRL(withDiscount);
 };

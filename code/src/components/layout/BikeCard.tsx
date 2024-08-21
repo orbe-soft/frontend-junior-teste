@@ -4,16 +4,9 @@ import Slider from "./Slider";
 import { formatToBRL, percentageDiscount } from "@/utils/formatters";
 import { useCartStore } from "@/hooks/useCart";
 import Spacer from "../custom/Spacer";
+import { BikeProps } from "@/types/bikeTypes";
 
-interface Bike {
-  id: string;
-  name: string;
-  description: string;
-  price: number;
-  images: { url: string; id: string }[];
-}
-
-const BikeCard = ({ bike }: { bike: Bike }) => {
+const BikeCard = ({ bike }: { bike: BikeProps }) => {
   const { cart, addToCart, removeFromCart } = useCartStore((state) => ({
     cart: state.cart,
     addToCart: state.addToCart,
@@ -47,7 +40,7 @@ const BikeCard = ({ bike }: { bike: Bike }) => {
         >
           Mais Detalhes
         </Link>
-        <Spacer w={4} y={0} />
+        <Spacer w={4} h={0} />
         <button
           className="flex p-2 bg-gray-700 rounded-sm text-white hover:bg-gray-900 hover:rounded-md transition-default"
           onClick={() => (isInCart ? removeFromCart(bike.id) : addToCart(bike))}

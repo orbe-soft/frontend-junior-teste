@@ -4,8 +4,9 @@ import { formatToBRL, percentageDiscount } from "@/utils/formatters";
 import Link from "next/link";
 import Image from "next/image";
 import { useCartStore } from "@/hooks/useCart";
+import { BikeProps } from "@/types/bikeTypes";
 
-const CartCard = ({ bike }) => {
+const CartCard = ({ bike }: {bike: BikeProps}) => {
   const removeFromCart = useCartStore((state) => state.removeFromCart);
   const incrementQuantity = useCartStore((state) => state.incrementQuantity);
   const decrementQuantity = useCartStore((state) => state.decrementQuantity);

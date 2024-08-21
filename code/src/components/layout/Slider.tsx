@@ -1,9 +1,16 @@
-"use client"
+"use client";
 
-import React from 'react'
+import React from "react";
 import SimpleImageSlider from "react-simple-image-slider";
 
-const Slider = ({images, height, width, navs}) => {
+interface Props {
+  images: string[];
+  height: number;
+  width: number;
+  navs: boolean;
+}
+
+const Slider = ({ images, height, width, navs }: Props) => {
   return (
     <div className="relative overflow-hidden w-full h-full">
       <SimpleImageSlider
@@ -12,10 +19,10 @@ const Slider = ({images, height, width, navs}) => {
         images={images}
         showBullets={true}
         showNavs={navs}
-        style={{ objectFit: 'fill' }}
+        style={{ objectFit: "fill" }}
       />
     </div>
   );
-}
+};
 
-export default Slider
+export default Slider;
