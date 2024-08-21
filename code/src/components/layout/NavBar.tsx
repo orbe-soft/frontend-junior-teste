@@ -1,39 +1,111 @@
 "use client";
 
 import Image from "next/image";
-import React from "react";
-import { useBikeStore } from "@/hooks/useBikeStore";
+import React, { useState } from "react";
+import Link from "next/link";
 
 const NavBar = () => {
-  const { searchName, setSearchName } = useBikeStore();
+  const [isOpen, setIsOpen] = useState(false);
 
-  const handleSearch = (e) => {
-    e.preventDefault();
-    setSearchName(searchName);
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
   };
 
   return (
-    <div className="absolute top-0 bg-gray-200 flex items-center justify-between w-[100%] px-4">
-      <Image src="/logo.png" width={100} height={100} alt="Bike Store Logo" />
-      <form className="flex items-center" onSubmit={handleSearch}>
-        <input
-          placeholder="Pesquise por um item"
-          className="p-2 rounded-sm"
-          value={searchName}
-          onChange={(e) => setSearchName(e.target.value)}
-        />
-        <Image
-          src="/icons/search-30.png"
-          width={30}
-          height={30}
-          alt="Search Icon"
-          className="ml-2"
-        />
-      </form>
-      <div className="flex items-center rounded-full border-2 border-gray-800 p-1">
-        <Image src="/icons/buy-32.png" width={28} height={28} alt="Cart icon" />
+    <nav className="bg-gray-100 w-full z-20 border-b border-gray-200">
+      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-2">
+        <Link
+          href="/"
+          className="flex items-center space-x-3 rtl:space-x-reverse"
+        >
+          <Image
+            src="/logo.png"
+            width={100}
+            height={32}
+            alt="Bike Store Logo"
+          />
+        </Link>
+        <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+          <Link
+            href="/cart"
+            className="ml-4 border-2 bg-green-700 rounded-lg p-2"
+          >
+            <Image
+              src="/icons/buy-24.png"
+              width={28}
+              height={28}
+              alt="Cart icon"
+            />
+          </Link>
+          <button
+            onClick={toggleMenu}
+            type="button"
+            className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
+            aria-controls="navbar-sticky"
+            aria-expanded={isOpen ? "true" : "false"}
+          >
+            <span className="sr-only">Open main menu</span>
+            <svg
+              className="w-5 h-5"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 17 14"
+            >
+              <path
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M1 1h15M1 7h15M1 13h15"
+              />
+            </svg>
+          </button>
+        </div>
+        <div
+          className={`items-center justify-between ${
+            isOpen ? "flex" : "hidden"
+          } w-full md:flex md:w-auto md:order-1`}
+          id="navbar-sticky"
+        >
+          <ul className="flex flex-col p-4 md:p-2 mt-4 font-medium border border-gray-100 rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0">
+            <li>
+              <Link
+                href="/"
+                className="block py-2 px-3 rounded md:p-0"
+                aria-current="page"
+              >
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="#"
+                className="block py-2 px-3 rounded hover:bg-gray-100 md:p-0"
+              >
+                Sobre
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="#"
+                className="block py-2 px-3 rounded hover:bg-gray-100 md:p-0"
+              >
+                Produtos
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="#"
+                className="block py-2 px-3 rounded hover:bg-gray-100 md:p-0"
+              >
+                Contato
+              </Link>
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
+    </nav>
   );
 };
 
