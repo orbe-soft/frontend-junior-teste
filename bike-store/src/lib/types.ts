@@ -25,4 +25,13 @@ type ApiResponse = {
   pagination: Pagination;
 };
 
+export interface AddCartProps {
+  id: string;
+}
+
+export type itemType = {
+  id: string;
+  quantity: number;
+};
+
 export type { ApiResponse, Bike };
