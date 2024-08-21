@@ -6,6 +6,7 @@ import { ApiResponse } from "@/lib/types";
 
 import { CardProduct } from "@/components/product/card";
 import { BsPagination } from "../bs-pagination/bs-pagination";
+import Load from "../loading/load";
 
 interface NameContentProps {
   name: string;
@@ -31,7 +32,7 @@ export const NameContent = ({ name }: NameContentProps) => {
   });
 
   if (isLoading) {
-    return <div>Carregando...</div>;
+    return <Load />;
   }
 
   if (data) {

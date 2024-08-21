@@ -9,6 +9,7 @@ import { req } from "@/lib/requests";
 import { useState } from "react";
 import { BsSelect } from "../bs-select/bs-select";
 import { BsBrands } from "../bs-brands/bs-brands";
+import Load from "../loading/load";
 
 export type order = "ASC" | "DESC";
 
@@ -64,7 +65,7 @@ export const Main = () => {
   };
 
   if (isLoading) {
-    return null;
+    return <Load />;
   }
 
   if (error) {

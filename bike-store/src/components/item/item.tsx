@@ -15,6 +15,7 @@ import { FiShoppingBag } from "react-icons/fi";
 import { Button } from "../ui/button";
 import { AddCart } from "@/services/add-cart";
 import { useCart } from "@/hooks/cart-provider";
+import Load from "../loading/load";
 
 interface ItemContentProps {
   slug: string;
@@ -44,7 +45,7 @@ export const ItemContent = ({ slug }: ItemContentProps) => {
   };
 
   if (isLoading) {
-    return <div>Carregando...</div>;
+    return <Load />;
   }
 
   if (data) {
