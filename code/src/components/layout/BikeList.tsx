@@ -1,6 +1,9 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
+import { useForm, Controller } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { searchSchema } from "@/schemas/searchSchema";
 import BikeCard from "./BikeCard";
 import { useBikeList } from "@/hooks/useBikeList";
 import BrandFilter from "../fragments/BrandFilter";
@@ -39,25 +42,50 @@ const BikeList = ({ initialBikes }: InitialBikes) => {
 
   const { searchName, setSearchName } = useBikeStore();
 
-  const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setSearchName(searchName);
+  const {
+    control,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm({
+    resolver: zodResolver(searchSchema),
+    defaultValues: {
+      searchName: searchName || "",
+    },
+  });
+
+  const onSubmit = (data: { searchName: string }) => {
+    setSearchName(data.searchName);
+  };
+
+  // Função que reseta o formulário
+  const handleReset = () => {
+    reset({ searchName: "" });
+    setSearchName("");
   };
 
   return (
-    <main className="flex flex-col min-h-screen flex-col items-center justify-center w-[95dvw]">
-      <form className="relative w-full max-w-md mt-4" onSubmit={handleSearch}>
-        <input
-          type="text"
-          id="search-navbar"
-          className="block w-full p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-md bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
-          placeholder="Pesquise por uma bike"
-          value={searchName}
-          onChange={(e) => setSearchName(e.target.value)}
+    <main className="flex flex-col min-h-screen items-center justify-center w-[95dvw]">
+      <form
+        className="relative flex items-center w-full max-w-md mt-4"
+        onSubmit={handleSubmit(onSubmit)}
+      >
+        <Controller
+          name="searchName"
+          control={control}
+          render={({ field }) => (
+            <input
+              type="text"
+              id="search-navbar"
+              className="block w-full p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-md bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
+              placeholder="Pesquise por uma bike"
+              {...field}
+            />
+          )}
         />
         <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
           <svg
-            className="w-4 h-4 text-gray-500 text-gray-400"
+            className="w-4 h-4 text-gray-500"
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -72,6 +100,16 @@ const BikeList = ({ initialBikes }: InitialBikes) => {
             />
           </svg>
         </div>
+        <button
+          type="button"
+          onClick={handleReset}
+          className="ml-4 px-3 py-1 bg-red-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        >
+          X
+        </button>
+        {errors.searchName && (
+          <p className="text-red-500 mt-2">{errors.searchName.message}</p>
+        )}
       </form>
 
       <section className="flex flex-wrap gap-8 mt-2">
