@@ -1,36 +1,36 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# E-commerce de Bicicletas
 
-## Getting Started
+Repositório da minha solução na avaliação para vaga de Estágio na OrbeSoft.
 
-First, run the development server:
+## Funcionalidades Implementadas
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Catálogo de Bicicletas**
+  - Exibição de uma lista de bicicletas com imagem, nome, preço e descrição.
+  - Paginação para navegação entre páginas de produtos.
+  - Filtros por marca para refinar a busca.
+  - Ordenação por preço, tanto menor quanto maior.
+  - Funcionalidade de busca por nome de bicicleta.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Página de Detalhes da Bicicleta**
+  - Exibição de informações detalhadas da bicicleta, incluindo imagens, nome, preço e descrição completa.
+  - Opção para adicionar a bicicleta ao carrinho.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Carrinho de Compras**
+  - Adição e remoção de produtos do carrinho.
+  - Atualização da quantidade de itens no carrinho.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- **Formulário de Pesquisa**
+  - Implementado com `react-hook-form` e `zod` para validação de dados.
+  - Validação básica para o campo de pesquisa por nome da bicicleta.
 
-## Learn More
+## O que Não Foi Implementado
 
-To learn more about Next.js, take a look at the following resources:
+- **Schema de Validação de Dados das Chamadas de API**: A validação de dados para chamadas de API não foi utilizada devido a um erro que acabei enfrentando, deixei uma observação sobre no arquivo `src/schemas/bikeSchema.ts`.
+- **Uso Completo do React Hook Form**: Acabei utilizando o `react-hook-form` apenas no formulário de pesquisa por nome de bicicleta, pois foi o único que consegui implementar à tempo na aplicação.
+- **Testes**: Cheguei a configurar o básico para realizar testes, porém tive de focar na entrega da avaliação, então não consegui implementá-los como eu gostaria.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Documentação
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- **Schema de Validação**: O esquema de validação para o formulário de pesquisa pode ser encontrado em `src/schemas/searchSchema.ts`.
+- **formatters**: Possui funções de formatação de valores.
+- **src/resources**: Apenas guias básicos sobre a API e reactQuery para que eu pudesse consultar em alguma necessidade.
