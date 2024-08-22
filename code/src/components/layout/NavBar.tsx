@@ -20,8 +20,8 @@ const NavBar = () => {
         >
           <Image
             src="/logo.png"
-            width={100}
-            height={32}
+            width={128}
+            height={75}
             alt="Bike Store Logo"
           />
         </Link>

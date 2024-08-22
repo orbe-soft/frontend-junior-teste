@@ -11,7 +11,7 @@ const Footer = () => {
             href="https://flowbite.com/"
             className="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse"
           >
-            <Image src="/logo.png" width={120} height={75} alt="Logo da BikeStore"/>
+            <Image src="/logo.png" width={128} height={75} alt="Logo da BikeStore"/>
           </a>
           <ul className="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 text-gray-400">
             <li>
@@ -32,7 +32,7 @@ const Footer = () => {
           </ul>
         </div>
         <hr className="my-6 border-gray-200 sm:mx-auto border-gray-700 lg:my-8" />
-        <span className="block text-sm text-gray-500 sm:text-center text-gray-400">
+        <span className="block text-sm text-gray-900 sm:text-center text-gray-400">
           © 2024{" "}
           <a href="https://www.orbesoft.com.br/" target="_blank" className="hover:underline">
             Orbesoft™

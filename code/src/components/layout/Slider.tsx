@@ -1,24 +1,24 @@
 "use client";
 
+import { ImageProps } from "@/types/bikeTypes";
 import React from "react";
 import SimpleImageSlider from "react-simple-image-slider";
 
 interface Props {
-  images: string[];
+  images: ImageProps[];
   height: number;
   width: number;
-  navs: boolean;
 }
 
-const Slider = ({ images, height, width, navs }: Props) => {
+const Slider = ({ images, height, width }: Props) => {
   return (
     <div className="relative overflow-hidden w-full h-full">
       <SimpleImageSlider
         width={width}
         height={height}
         images={images}
-        showBullets={true}
-        showNavs={navs}
+        showBullets={false}
+        showNavs={true}
         style={{ objectFit: "fill" }}
       />
     </div>

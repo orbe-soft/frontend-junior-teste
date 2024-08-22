@@ -14,7 +14,7 @@ const CartCard = ({ bike }: {bike: BikeProps}) => {
   return (
     <div className="relative bg-gray-200 border-2 border-gray-300 flex items-center justify-center w-[85dvw] flex-wrap p-2 rounded-md hover:border-gray-500 transition-default">
       <section className="">
-        <Slider navs={true} images={bike.images} height={180} width={280} />
+        <Slider images={bike.images} height={180} width={280} />
       </section>
       <section className="flex-2 ml-2 text-center md:text-start">
         <h1 className="text-xl font-semibold mt-1 mb-2">{bike.name}</h1>

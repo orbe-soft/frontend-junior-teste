@@ -18,7 +18,7 @@ const BikeCard = ({ bike }: { bike: BikeProps }) => {
 
   return (
     <article className="relative bg-gray-100 flex flex-col items-start justify-start w-[260px] p-2 rounded-md hover:scale-110 shadow-custom-medium-gray transition-default ease-in-out">
-      <Slider images={bike.images} navs={false} height={180} width={240} />
+      <Slider images={bike.images} height={180} width={240} />
       <h2 className="text-lg my-1" id="bike-name">
         {bike.name}
       </h2>
