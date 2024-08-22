@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+  color: #282828;
+}
+
+body{
+  background-color: #dadada;
+  display: flex;
+  flex-direction: column;
+}
+
+main{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.transition-default {
+  transition: all 0.3s ease;
+}
